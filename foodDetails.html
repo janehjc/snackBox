@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "format-detection" content="telephone = no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>食物详情</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+    <div class="fd_container" id="fd_container" v-cloak>
+        <div class="fd_nav">
+            <i class="el-icon-close"  @click="goBack"></i>
+            <i class="el-icon-more"></i>
+        </div>
+        <div class="fd_header">
+            <img :src="imgIp + foodList.logo">
+        </div>
+        <div class="fd_main">
+            <div class="fd_info">
+                <h5 v-text="foodList.prodName"></h5>
+                <!--<p class="fd_sales">月售125</p>-->
+                <p class="fd_price">{{foodList.petailPrice | moneyMark(foodList.petailPrice)}}</p>
+            </div>
+            <div class="fd_descr">
+                <h5>商品描述</h5>
+                <div v-text="foodList.foodDesc"></div>
+            </div>
+        </div>
+        <!--<div class="fd_footer">-->
+            <!--<div class="fd_left">-->
+                <!--<p>共计：<span>￥25.8</span></p>-->
+            <!--</div>-->
+            <!--<div class="fd_right" @click="tosettle">-->
+                <!--<p>去结算</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/element-ui@2.4.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/axios.min.js" type="text/javascript" charset="utf-8"></script>
+<!--3des编码解码 js文件-->
+<script src="js/tripledes.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/mode-ecb.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/encrypt.js" type="text/javascript" charset="utf-8"></script>
+<!--公共js-->
+<script src="js/pubilic.js" type="text/javascript" charset="utf-8"></script>
+<script>
+var listData;
+var app=new Vue({
+    el: '#fd_container',
+    data:{
+    	imgIp : respImg,
+        foodList: JSON.parse(sessionStorage.getItem('listData'))
+    },
+    methods: {
+    	
+    }
+})
+</script>
+</body>
+</html>

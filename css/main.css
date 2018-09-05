@@ -1,0 +1,62 @@
+/* reset */
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-weight:normal;font-style:normal;}
+ol,ul{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
+q:before,q:after{content:'';}
+fieldset,img,abbr,acronym{border:0;}
+input,button{border: 0;font-family:'Microsoft Yahei', '微软雅黑';}
+input:focus,button:focus{outline:none;}
+/* basic */
+.el-message{margin-top: 280px;}
+.mui-content{background: none;}
+.mui-table-view{background: transparent;}
+.mui-table-view:after{height: 0;}
+.mui-table-view:before{height: 0;}
+html,body{height: 100%;background-color: #fff;font-family:'Microsoft Yahei', '微软雅黑';color: #333;font-size: 14px;}
+[v-cloak] {
+    display: none !important;
+}
+/* index */
+.index-container{height: 100%;width: 100%;overflow: hidden;display: flex;flex-direction: column;}
+	.index-nav{height: 30px;display: flex;padding: 10px 0;}
+		.index-back{width: 50px;height: 30px;line-height: 30px;background: url(../img/index-icon/index-back.png) 10px no-repeat;background-size: 11px 16px;}
+		.index-search{flex-grow:1;font-size: 13px;position: relative;}
+			.index-search img{width: 15px;height: 15px;position: absolute;left: 8px;top: 8px;}
+			.index-search input{width: 90%;height: 20px;background: #f1f0f0;border-radius: 15px;padding: 5px 5%;text-indent: 20px;}
+		.index-searchBtn{width: 50px;height: 30px;line-height: 30px;text-align: center;color: deepskyblue;font-size: 13px;}
+	.index-header{height: 65px;display: flex;padding: 5px 10px 2px;border-bottom: 2px solid #f7f8fa;}
+		.index-header div:first-child{width: 65px;height: 65px;}
+			.index-header div:first-child img{width: 65px;height: 65px;}
+		.index-header div:last-child{flex-grow:1;height: 65px;line-height: 65px;padding: 0 10px;font-size: 16.5px;}
+	.index-main{display: flex;background-color: #f7f8fa;}
+		.index-aside-L{width: 80px;background-color: #f3f4f8;}
+			.index-aside-L ul{}
+				.index-aside-L ul li{width: 60px;min-height: 45px;padding: 0 10px;font-size: 13px;display: flex;align-items: center;}
+				.index-aside-L ul li div{text-align: center;}
+				.index-aside-L ul li img{width: 20px;height: 20px;display: block;margin-right: 5px;}
+				.index-aside-L ul li div:last-child{flex-grow: 1;line-height: 22.5px;}
+				.index-aside-L ul li:hover,.index-aside-L ul li.active{background-color: #fff;}
+		.index-aside-R{flex-grow:1;background: #fafafa;padding: 1.5% 2%;overflow-y: auto;}
+			.indexDemo{display: flex;background-color: #fff;padding: 5px 0 5px 2.5%;box-shadow: 0px 2px 10px 1px gainsboro;margin-bottom: 6px;}
+				.indexDemoL{width: 60%;height: 80px;max-width: 80px;}
+					.indexDemoL img{width: 100%;height: 80px;}
+				.indexDemoR{flex-grow:1;padding: 0 2%;}
+				.indexDemoRBgc{background: url(../img/index-icon/idnex-none.png) center center no-repeat;background-size: 60px 60px;}
+				.indexDemoR div:first-child{font-size: 15px;color: #000;font-weight: bold;height: 25px;white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+				.indexDemoR div:nth-child(2){height: 32px;line-height: 20px;font-size: 12px;margin-bottom: 3px;color: #999;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+				.indexDemoR div:nth-child(3){height: 20px;line-height: 20px;}
+					.indexDemoR div:nth-child(3) span.indexPrice{color: #ff554c;}
+					.indexDemoR div:nth-child(3) p{width: 70px;height: 20px;line-height: 20px;display: flex;float: right;margin-right: 10px;}
+					.indexDemoR div:nth-child(3) p span{width: 19px;height: 20px;}
+					.indexDemoR div:nth-child(3) p span:first-child{background: url(../img/index-icon/index-sub.png) no-repeat;background-size: 100% 100%;}
+					.indexDemoR div:nth-child(3) p span:nth-child(2){width: 30px;}
+						.indexDemoR div:nth-child(3) p span:nth-child(2) input{width: 100%;text-align: center;height: 20px;line-height: 20px;background-color: #fff;}
+					.indexDemoR div:nth-child(3) p span:last-child{background: url(../img/index-icon/index-add.png) no-repeat;background-size: 100% 100%;}
+	.index-footer{width: 100%;height: 55px;display: flex;}
+		.index-footer div:first-child{height: 55px;flex-grow:1;line-height: 55px;color: #fff;background-color: #404040;padding: 0 5%;font-size: 17px;}
+			.index-footer div:first-child span{font-size: 20px;}
+		.index-footer button{width: 115px;height: 55px;background-color: #fed101;line-height: 55px;text-align: center;color: #333;font-weight: bold;font-size: 15px;}
+
+	
