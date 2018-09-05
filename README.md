@@ -19,7 +19,7 @@
     
     var ua = navigator.userAgent.toLowerCase(); //判断当前环境
     if (ua.match(/MicroMessenger/i) == "micromessenger") {//微信 
-        this.wxPay(outData);
+        this.wxPay(respData);
     }else{//其他浏览器
         window.location.href = respData.mweb_url + '&redirect_url=https://www.baidu.com';
     }
