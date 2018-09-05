@@ -25,7 +25,6 @@
     }
     //公众号支付
     wxPay(e){
-        var _that = this;
         var wxData = {
                 "appId":e.app_id,     //公众号名称，由商户传入     
                 "timeStamp":e.timestamp, //时间戳，自1970年以来的秒数     
