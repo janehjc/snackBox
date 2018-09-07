@@ -198,7 +198,8 @@ var vm = new Vue({
 					"moneyNum" : _that.moneyNum,
 					"foodList" : _that.sendData,
 					"courierId" : _that.indexData.courierId,
-					"courierName" : _that.indexData.courierName
+					"courierName" : _that.indexData.courierName,
+					"topPrice" : _that.indexData.topPrice
 				}
 				sessionStorage.setItem('submitData',JSON.stringify(submitData));
 				var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
