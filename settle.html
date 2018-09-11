@@ -85,8 +85,6 @@
 <script src="js/encrypt.js" type="text/javascript" charset="utf-8"></script>
 <!--公共js-->
 <script src="js/pubilic.js" type="text/javascript" charset="utf-8"></script>
-<!--微信-->
-<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>-->
 <!--搜狐抓取远端Ip-->
 <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
@@ -168,7 +166,6 @@
 					        }else{//其他浏览器
 					        	this.endLoading();
 					        	window.location.href = outData.mweb_url + '&redirect_url=http://www.bdgaoxiao.com/snacksBox/static/snackBox/index.html?boxId=' + this.getLocationData.boxId;
-//					        	window.location.replace(outData.mweb_url + '&redirect_url=http://www.bdgaoxiao.com/snacksBox/static/snackBox/index.html?boxId=' + this.getLocationData.boxId);
 					        }
 						}else{
 							this.endLoading();
@@ -197,7 +194,6 @@
 					      	if(res.err_msg == "get_brand_wcpay_request:ok" ){
 					            alert("支付成功");
                                 window.location.href = "http://www.bdgaoxiao.com/snacksBox/static/snackBox/index.html?boxId=" + _that.getLocationData.boxId;
-//                              window.location.replace("http://www.bdgaoxiao.com/snacksBox/static/snackBox/index.html?boxId=" + _that.getLocationData.boxId);
 					      	} 
 					   	}); 
 					}
