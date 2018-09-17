@@ -164,10 +164,11 @@ var vm = new Vue({
 			          	v1.prodName.search(_that.search) != -1 && _that.viewDemo.push(v1);
 			       	});
 		      	});
-    		} 
+    		}
     	},
     	//搜索回车
     	searchClick(){
+    		this.search = '';
             this.isSearch = !this.isSearch;
     	},
     	//tab切换事件
