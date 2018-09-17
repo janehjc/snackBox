@@ -7,29 +7,31 @@
     <title>星驰达零食盒子</title>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <style>
-	  	
-	</style>
 </head>
 <body>
 	<div id="takeOut" class="index-container">
-		<div class="index-nav">
-			<div class="index-back"></div>
-			<div class="index-search">
-				<img src="img/index-icon/index-search.png"/>
-				<input v-model.trim="search" placeholder="请输入商品名称" @input="searchHandle()"/>
+		<div class="indexHeader">
+			<div class="index-nav">
+				<div class="index-back"></div>
+				<div class="index-search-box">
+					<div class="index-search" v-show="isSearch">
+						<img src="img/index-icon/index-search.png"/>
+						<input v-model.trim="search" placeholder="请输入商品名称" @input="searchHandle()"/>
+					</div>
+				</div>
+				<div class="index-searchBtn" @click="searchClick()">
+					<img src="img/index-icon/index-search.png"/>
+				</div>
 			</div>
-			<div class="index-searchBtn" @click="searchClick()">搜索</div>
-		</div>
-		<div class="index-header" v-cloak>
-			<div><img src="./img/boxlogo.jpg" /></div>
-			<div v-text="indexData.boxAddress"></div>
+			<div class="index-header" v-cloak>
+				<!--<div><img src="./img/boxlogo.jpg" /></div>-->
+				<div v-text="indexData.boxAddress"></div>
+			</div>
 		</div>
 		<div class="index-main" ref="indexMain">
 			<div class="index-aside-L">
 				<ul>
 					<li :class="{active:index==initTab}" v-for="(value,index) of indexData.cateList" v-cloak  :key="indexData.cateList.foodTypeId" @click="indexAsideTab(index)">
-						<!--<img :src="imgIp + value.foodTypeImg" v-show="value.foodTypeImg != ''" />-->
 						<div v-text="value.foodTypeName"></div>
 					</li>
 				</ul>
@@ -87,13 +89,14 @@ var vm = new Vue({
 	  	this.initParm();
 	},
     mounted: function () {
-	  	var indexMainHeight = document.documentElement.clientHeight - 179 + 'px';
+	  	var indexMainHeight = document.documentElement.clientHeight - 205 + 'px';
 	  	this.$refs.indexMain.style.height = indexMainHeight;
 	  	this.setFontSize();
 	},
     data : {
     	//获取商家Id
     	boxId : getParam('boxId'),
+    	isSearch : false,
     	imgIp : respImg,
     	initTab : '0',
         search : '',
@@ -151,7 +154,7 @@ var vm = new Vue({
 		   	});
     	},
     	//搜索
-    	searchClick(){
+    	searchHandle(){
     		this.viewDemo = [];
     		if (this.search) {
 	    		this.initTab = null;
@@ -164,8 +167,8 @@ var vm = new Vue({
     		} 
     	},
     	//搜索回车
-    	searchHandle(){
-            this.searchClick();
+    	searchClick(){
+            this.isSearch = !this.isSearch;
     	},
     	//tab切换事件
     	indexAsideTab(e){
