@@ -37,7 +37,11 @@
 			<div class="index-aside-R">
 				<div class="indexDemo" v-for="(value,index) of viewDemo" v-cloak  :key="viewDemo.prodId">
 					<div class="indexDemoL" @click="listClick(index)">
-						<img :src="imgIp + value.logo"/>
+						<img class="imdexDemoL-bg1" src="img/index-icon/index-bg4.png"/>
+						<img class="imdexDemoL-bg2" src="img/index-icon/index-bg5.png"/>
+						<div>
+							<img :src="imgIp + value.logo"/>							
+						</div>
 					</div>
 					<div class="indexDemoR" :class="{indexDemoRBgc: value.prodNum == '0'}">
 						<div v-text="value.prodName"></div>
@@ -57,8 +61,14 @@
 			</div>
 		</div>
 		<div class="index-footer" v-cloak>
-			<div>共计：<span>{{this.moneyNum | moneyMark(this.moneyNum)}}</span></div>
-			<button @click="sendDataClick()" :disabled="isClick">去结算</button>
+			<img src="img/index-icon/index-bg3.png"/>
+				<div class="indexFooterCon">
+					<div>
+						共计：<span>{{this.moneyNum | moneyMark(this.moneyNum)}}</span>
+						<img src="img/index-icon/index-bg2.png" />
+					</div>
+					<button @click="sendDataClick()" :disabled="isClick">去结算</button>					
+				</div>
 		</div>
 	</div>
 <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>

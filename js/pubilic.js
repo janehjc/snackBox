@@ -1,5 +1,5 @@
 var respImg = 'http://www.bdgaoxiao.com';   //公网
-//var respImg = 'http://192.168.21.216:8080'; 
+//var respImg = 'http://192.168.21.239:8080'; 
 var respUrl = respImg + '/snacksBox/f/app/getH5Response/';   //接口
 //截取url参数
 var getParam = function getParam(paramName) {

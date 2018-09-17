@@ -71,7 +71,7 @@
             <div class="settle-left">
                 <p>共计：<span>{{getLocationData.moneyNum | moneyMark(getLocationData.moneyNum)}}</span></p>
             </div>
-            <div class="settle-right" @click="subMit()">
+            <div class="settle-right" @click.oce="subMit()">
                 <p>提交订单</p>
             </div>
         </div>
