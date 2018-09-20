@@ -71,8 +71,8 @@
             <div class="settle-left">
                 <p>共计：<span>{{getLocationData.moneyNum | moneyMark(getLocationData.moneyNum)}}</span></p>
             </div>
-            <div class="settle-right" @click.oce="subMit()">
-                <p>提交订单</p>
+            <div class="settle-right">
+            	<button @click="subMit()" :disabled="submitIsClick" :class="{disClick:submitIsClick}" >提交订单</button>
             </div>
         </div>
     </div>
@@ -93,6 +93,7 @@
         data:{
         		remarks:'',			//备注
         		imgIp : respImg,
+        		submitIsClick : false,
         		openId : '',
         		new_no : '',
         		old_no : '',
@@ -192,6 +193,7 @@
 					      	'getBrandWCPayRequest',wxData,
 					      	function(res){
 					      	if(res.err_msg == "get_brand_wcpay_request:ok" ){
+					      		_that.submitIsClick = true;
 					            alert("支付成功");
                                 window.location.href = "http://www.bdgaoxiao.com/snacksBox/static/snackBox/index.html?boxId=" + _that.getLocationData.boxId;
 					      	} 

@@ -88,8 +88,8 @@
         .settle-footer .settle-left p span{font-size: 0.48rem}
         .settle-footer .settle-left p del{padding-left: 0.06rem;font-size: 0.18rem;color: #999;text-decoration:line-through}
         .settle-footer .settle-right{float: left;width: 32%;height: 1.1rem;background: #FED101;}
-        .settle-footer .settle-right p{font-size: 0.3rem;text-align: center;line-height: 1.1rem;color: #333}
-        
+        .settle-footer .settle-right button{width: 100%;font-size: 0.3rem;text-align: center;height: 55px;line-height: 1.1rem;color: #333;background-color: transparent;}
+        .settle-footer .settle-right button.disClick{background-color: darkgray;}
 /*orderingWait*/
 .wait_container{width: 100%;height: 100%;position: relative;background: #f2f0f0;}
 .wait_container div,.wait_container p{box-sizing: border-box}

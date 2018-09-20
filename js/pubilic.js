@@ -5,12 +5,34 @@ var respUrl = respImg + '/snacksBox/f/app/getH5Response/';   //接口
 var getParam = function getParam(paramName) {
 	paramValue = "", isFound = !1;
 	if (window.location.search.indexOf("?") == 0 && window.location.search.indexOf("=") > 1) {
-		arrSource = unescape(window.location.search).substring(1, window.location.search.length).split("&"), i = 0;
+		arrSource = decodeURI(window.location.search).substring(1, window.location.search.length).split("&"), i = 0;
 		while (i < arrSource.length && !isFound) {
 			arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++;
 		}
 	}
 	return paramValue == "" && (paramValue = null), paramValue;
+}
+// 设置cook
+var setCookie = function(c_name, value, time) {
+	var exdate = new Date();
+	if(time && time !=0)
+		{
+			exdate = new Date(time);
+		}
+	document.cookie = c_name + "=" + escape(value) + ((time == null || time==0) ? "" : ";expires=" + exdate.toGMTString())
+}
+// 获取cook
+var getCookie = function(c_name) {
+	if (document.cookie.length > 0) {
+		c_start = document.cookie.indexOf(c_name + "=")
+		if (c_start != -1) {
+			c_start = c_start + c_name.length + 1
+			c_end = document.cookie.indexOf(";", c_start)
+			if (c_end == -1) c_end = document.cookie.length
+			return decodeURI(document.cookie.substring(c_start, c_end))
+		}
+	}
+	return null;
 }
 // 加载
 var loading;

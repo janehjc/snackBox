@@ -14,7 +14,7 @@
 			<div class="index-nav">
 				<div class="index-back"></div>
 				<div class="index-search-box">
-					<div class="index-search" v-show="isSearch">
+					<div class="index-search" v-if="isSearch">
 						<img src="img/index-icon/index-search.png"/>
 						<input v-model.trim="search" placeholder="请输入商品名称" @input="searchHandle()"/>
 					</div>
@@ -92,6 +92,9 @@ var vm = new Vue({
 	  	var indexMainHeight = document.documentElement.clientHeight - 205 + 'px';
 	  	this.$refs.indexMain.style.height = indexMainHeight;
 	  	this.setFontSize();
+	  	//////设置cookie数据//////
+		var cookieDate = new Date();		
+		setCookie("loginType","C",cookieDate.getTime() + 3600 * 1000);
 	},
     data : {
     	//获取商家Id
