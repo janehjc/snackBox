@@ -1,0 +1,126 @@
+[v-cloak] {
+    display: none !important;
+}
+.el-message{margin-top: 280px;}
+/*foodDetails*/
+.fd_container{width: 100%;height: 100%;position: relative;}
+    .fd_nav{width: 100%;height: 0.7rem;padding: 0.05rem 0;position: fixed;top: 0;background-color: white;z-index: 999}
+        .fd_nav .el-icon-close{float: left;display: inline-block;line-height:0.7rem;width: 0.5rem;font-size: 0.45rem;margin-left: 0.03rem;}
+        .fd_nav .el-icon-more{float: right;display: inline-block;line-height:0.7rem;width: 0.5rem;font-size: 0.45rem;margin-right: 0.03rem;}
+    .fd_header{box-sizing: border-box;width: 100%;padding: 0 3%;padding-top: 0.70rem;position: relative}
+        .fd_header img{width: 100%;height: 100%;display: inline-block;border-radius: 20px}
+    .fd_main{width: 100%;box-sizing: border-box;padding: 0.25rem 5%;position: relative;}
+        .fd_main .fd_info{border-bottom: 0.02rem dashed #ddd}
+        .fd_main .fd_info h5{font-size: 0.36rem;color: #333;font-weight: bold}
+            /* .fd_info .fd_sales{font-size: 0.24rem;color:#999;padding: 0.15rem 0}*/
+            .fd_info .fd_price{font-size: 0.48rem;color:#ed3434;padding: 0.4rem 0;}
+        .fd_main .fd_descr{box-sizing: border-box;padding-top: 0.20rem; }
+            .fd_descr h5{font-size: 0.3rem;color: #333;font-weight: bold;margin: 0.1rem 0;}
+            .fd_descr div{font-size: 0.22rem;color:#666;line-height: 0.36rem}
+    .fd_footer{position: fixed;bottom: 0;height: 1rem;width: 100%;}
+        .fd_footer .fd_left{float: left;width: 68%;height: 1rem;background: #404040;}
+            .fd_left p{padding-left: 0.20rem;font-size: 0.36rem;color: white;line-height: 1rem;}
+                .fd_left p span{font-size: 0.48rem}
+                /*.fd_left p del{padding-left: 0.06rem;font-size: 0.18rem;color: #999;text-decoration:line-through}*/
+        .fd_footer .fd_right{float: left;width: 32%;height: 01rem;background: #FED101;}
+            .fd_right p{font-size: 0.3rem;text-align: center;line-height: 1rem;color: #333}
+/* settle */
+.settle-container{height: 100%;width: 100%;position: relative;background: #f2f0f0 }
+.settle-nav{height: 0.6rem;display: flex;padding: 0.2rem 0;background: #ffffff }
+    .settle-back{width: 0.4rem;height: 0.6rem;margin-left:0.1rem;line-height: 0.6rem;background: url(../img/settle-icon/settle-back.png) 0.1rem no-repeat;background-size: 0.2rem 0.34rem;}
+    .settle-font{ flex-grow:1;height: 0.6rem;line-height: 0.6rem;color: #333333;font-size: 0.34rem;text-align: center;}
+    .el-icon-more{font-size: 0.4rem;height:0.6rem;line-height: 0.6rem;padding-right: 0.2rem}
+    .settle-icon{height: 0.6rem;line-height: 0.6rem}
+.settle-header{height: 0.7rem;display: flex;padding: 0.2rem 0.3rem 0.05rem ;background: #ffffff;border-top: 0.01rem solid #eae9e9;}
+    .settle-header div:first-child{width: 0.6rem;height: 0.6rem;}
+    .settle-header div:first-child img{width: 0.6rem;height: 0.6rem;}
+    .settle-header div:last-child{flex-grow:1;height: 0.6rem;line-height: 0.6rem;padding: 0 0.1rem;font-size: 0.24rem;color: #999999}
+.settle-main{box-sizing: border-box;background:#ffffff;vertical-align: middle;}
+    .settle-main-header{background: #ffffff;margin:0 0.1rem 0.2rem}
+    .settle-main-headerDemo{display: flex;padding: 0.1rem 0.2rem;margin: 0 0.05rem 0.1rem;background: #f8f8f8;border-bottom: 0.01rem solid white;}
+    .settleDemo img{width: 1rem;height: 1rem;}
+    .settleDemo-txt{flex-grow: 1}
+    .settleName{ padding-left: 0.1rem;font-size: 0.24rem;color: #333333;font-weight: bold}
+    .settleMoney{float: right; font-size: 0.24rem;color: #333333;font-weight: bold}
+    .settleAcount{ display: inline-block;margin-top: 0.45rem; padding-left: 0.1rem;font-size: 0.18rem;color: #999999}
+.container{sbackground: #f2f0f0;}
+    .container .p1{height: 0.2rem;background-color: #f2f0f0;margin-top: 0.3rem;}
+.settle-main-main{padding: 0rem 0.3rem;background:#ffffff }
+    .payMethod{border-bottom: 0.01rem solid #eeeeee;position: relative;height: 0.85rem}
+        .payMethod .payMethod-p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width:1.5rem}
+        .payMethod .payMethod-online{position: absolute;top: 0;right: 0.2rem;height: 0.85rem;line-height: 0.85rem;font-size: 0.24rem;color: #333333}
+    .remarks{ border-bottom: 0.01rem solid #eeeeee;position: relative;height: 0.85rem}
+        .remarks-p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width: 0.8rem;color: #333333}
+        .remarks-input{position: absolute;top: 0rem;right: 0.2rem;  height: 0.85rem;line-height: 0.85rem}
+        .remarks-input input{height: 0.40rem;line-height: 0.40rem;border: none;font-size: 0.24rem;color: #999999;text-align: right}
+    .invoice{position: relative;height: 0.85rem}
+        .invoice .invoice-p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width:1rem}
+        .invoice .invoice-pic1{position: absolute;top: 35%;right: 1.8rem;font-size: 0.24rem;color: #999999;vertical-align: middle;}
+        .invoice-pic1 img{height: 0.24rem;width: 0.24rem;margin-bottom: 0.04rem;margin-right: 0.1rem}
+        .invoice .invoice-pic2{position: absolute;top: 35%;right: 0.2rem;font-size: 0.24rem;color: #999999}
+        .invoice-pic2 img{height: 0.24rem;width: 0.24rem;margin-bottom: 0.04rem;margin-right: 0.1rem}
+.container .p2{ background: #f2f0f0;}
+    .container .p2 p{padding: 0.06rem 0.3rem;height: 0.38rem;font-size: 0.24rem;color: #999999;line-height: 0.35rem;}
+.settle-main-footer{ padding: 0rem 0.3rem;background: #ffffff;margin-bottom: 1.3rem}
+        .headUpType{ border-bottom: 0.01rem solid #eeeeee;position: relative;height: 0.85rem}
+            .headUpType-p p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width: 1.5rem}
+            .headUpType-pic1{position: absolute;top: 36%;right:44%; font-size: 0.24rem;color: #333333}
+            .headUpType-pic1 img{height: 0.24rem;width: 0.24rem;margin-bottom: 0.04rem;margin-right: 0.1rem}
+            .headUpType-pic2{position: absolute;top: 36%;right: 0.2rem;font-size: 0.24rem;color: #333333}
+            .headUpType-pic2 img{height: 0.24rem;width: 0.24rem;margin-bottom: 0.04rem;margin-right: 0.1rem}
+        .invoiceUp{ border-bottom: 0.01rem solid #eeeeee;position: relative;height: 0.85rem}
+            .invoiceUp-p p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width: 1.5rem}
+            .invoiceUp-input{position: absolute;top: 0rem;right: 0.2rem;  height: 0.85rem;line-height: 0.85rem}
+            .invoiceUp-input input{height: 0.40rem;line-height: 0.40rem;border: none;font-size: 0.24rem;color: #cccccc;text-align: right}
+        .duty{ border-bottom: 0.01rem solid #eeeeee;position: relative;height: 0.85rem;}
+            .duty-p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width: 0.8rem}
+            .duty-input{position: absolute;top: 0rem;right: 0.2rem;  height: 0.85rem;line-height: 0.85rem}
+            .duty-input input{font-size: 0.24rem;height: 0.4rem;line-height: 0.4rem;border: none;color: #cccccc;text-align: right}
+        .invoiceContent{ border-bottom: 0.01rem solid #eeeeee;position: relative;height: 0.85rem}
+            .invoiceContent-p{ font-size: 0.24rem;height: 0.85rem;line-height:0.85rem;width: 1.5rem}
+        .invoiceMoney{ position: relative;height: 0.85rem}
+            .invoiceMoney-p{ font-size: 0.24rem;height: 0.85rem;line-height: 0.85rem;width: 1.5rem}
+            .invoiceMoney-crash{position: absolute;top: 0;right:0.2rem;  height: 0.85rem;line-height: 0.85rem}
+            .invoiceMoney-crash p{font-size: 0.24rem;color: #FED101}
+.settle-footer{position: fixed;bottom: 0;left:0;height: 1.1rem;width: 100%;}
+        .settle-footer .settle-left{float: left;width: 68%;height: 1.1rem;background: #404040;}
+        .settle-footer .settle-left p{padding-left: 0.20rem;font-size: 0.36rem;color: white;line-height: 1.1rem;height: 1.1rem}
+        .settle-footer .settle-left p span{font-size: 0.48rem}
+        .settle-footer .settle-left p del{padding-left: 0.06rem;font-size: 0.18rem;color: #999;text-decoration:line-through}
+        .settle-footer .settle-right{float: left;width: 32%;height: 1.1rem;background: #FED101;}
+        .settle-footer .settle-right button{width: 100%;font-size: 0.3rem;text-align: center;height: 55px;line-height: 1.1rem;color: #333;background-color: transparent;}
+        .settle-footer .settle-right button.disClick{background-color: darkgray;}
+/*orderingWait*/
+.wait_container{width: 100%;height: 100%;position: relative;background: #f2f0f0;}
+.wait_container div,.wait_container p{box-sizing: border-box}
+.wait_nav{height: 1rem;display: flex;padding: 0.2rem 0.05rem;background: #ffffff;}
+.wait_back{width: 0.4rem;height: 0.6rem;line-height: 0.6rem;background: url(../img/wait-icon/index-back.png) 0.1rem no-repeat;background-size: 0.2rem 0.34rem;}
+.wait_font{flex-grow:1;height: 0.6rem;line-height: 0.6rem;color: #333333;font-size: 0.34rem;text-align: center}
+.el-icon-more{float: right;display: inline-block;line-height:0.6rem;width: 0.5rem;font-size: 0.4rem;margin-right: 0.03rem;}
+.wait_header{background:white;width: 100%;border-top: 0.01rem solid #eae9e9;}
+.wait_top{height: 0.7rem;line-height: 0.5rem;font-size: 0.25rem;color: #666;padding: 0.1rem;border-bottom: 0.02rem dashed #ddd;position: relative}
+.wait_odd{float: left;padding-left: 0.18rem}
+.wait_hcontent{text-align: center;padding: 0.4rem}
+.wait_order{color: #E20000;font-size: 0.48rem;line-height: 0.8rem;letter-spacing: 0.04rem}
+.wait_orderNumber{color: #E20000;font-size: 0.5rem;line-height: 0.7rem;letter-spacing: 0.04rem}
+/*.wait_nowNumber{color:#666;font-size: 0.25rem;line-height: 0.9rem}*/
+.wait_hint{color: #ccc;font-size: 0.25rem;margin-bottom: 0.6rem;margin-top: 0.5rem}
+.wait_main{background:white;width: 100%;margin-top: 0.2rem;}
+.wait_mheader{height: 0.85rem;display: flex;padding: 0.25rem 0.45rem 0.2rem ;background: #ffffff}
+.wait_mheader div:first-child{width: 0.6rem;height: 0.6rem;border-radius: 0.3rem}
+.wait_mheader div:first-child img{width: 0.6rem;line-height: 0.6rem;height: 0.6rem;border-radius: 0.3rem}
+.wait_mheader div:last-child{flex-grow:1;height: 0.6rem;line-height: 0.6rem;padding: 0 0.25rem;font-size: 0.24rem;color: #aaa}
+.wait_main{box-sizing: border-box;background:#ffffff;vertical-align: middle;}
+.wait_main_header{background: #ffffff;}
+.wait_main_headerDemo{display: flex;padding: 0.1rem 0.25rem;margin: 0 0.15rem 0.1rem;background: #f8f8f8;border-bottom: 0.01rem solid white;}
+.wait_settleDemo img{width: 1rem;height: 1rem;}
+.wait_settleDemo_txt{position: relative;width: 100%}
+.wait_settleDemo_txt p{width: 100%;font-weight: bold}
+.wait_settleName{ padding-left: 0.1rem;font-size: 0.24rem;color: #333333}
+.wait_settleMoney{position: absolute;top: 0;right: 0;font-size: 0.24rem;color: #333333}
+.wait_settleAcount{ position: absolute;bottom: 0;padding-left: 0.1rem;font-size: 0.16rem;color: #999}
+.wait_main_footer{width: 100%;padding: 0.2rem 0.1rem 0.25rem 0.4rem;color: #666;font-size: 0.24rem;}
+.wait_main_footer p:first-child{width: 100%;line-height: 0.3rem;margin-bottom: 0.2rem;position: relative}
+.wait_totalPrice{position: absolute;right: 0.1rem}
+.wait_main_footer p:last-child{width: 100%;position: relative}
+.wait_payType{position: absolute;right: 0.1rem}
