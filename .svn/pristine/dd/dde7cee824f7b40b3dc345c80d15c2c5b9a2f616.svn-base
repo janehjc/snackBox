@@ -20,7 +20,7 @@
 var vm = new Vue({  
     el : '#app',
     beforeMount: function () {
-		window.location.replace('./home.html?boxId='+getParam('boxId') + '&random=' + Math.random()*1000);
+		window.location.replace('./index.html?boxId='+getParam('boxId') + '&random=' + Math.random()*1000);
 	}
 });
 </script>
