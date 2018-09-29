@@ -30,9 +30,18 @@
 					<div class="index-searchBtn" @click="searchClick()">
 						<img src="img/index-icon/index-search.png"/>
 					</div>
+					<div class="index-more" @click="isMore=!isMore">
+						<i class="el-icon-more"></i>
+						<div class="index_downMenu" v-show="isMore">
+							<div @click="locationToFaceback()">
+								<i class="el-icon-edit"></i>
+								<span>意见反馈</span>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="index-header" v-cloak>
-					<div><img src="./img/boxlogo.jpg" /></div>
+					<!--<div><img src="./img/boxlogo.jpg" /></div>-->
 					<div v-text="indexData.boxAddress"></div>
 				</div>
 			</div>
@@ -75,12 +84,13 @@
 				<div class="indexFooterCon">
 					<div>
 						共计：<span>{{this.moneyNum | moneyMark(this.moneyNum)}}</span>
-						<img src="img/index-icon/index-bg2.png" />
+<!--						<img src="img/index-icon/index-bg2.png" />-->
 					</div>
 					<button @click="sendDataClick()" :disabled="isClick">去结算</button>					
 				</div>
 			</div>
 		</div>
+
 	</div>
 <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/element-ui@2.4.1.js" type="text/javascript" charset="utf-8"></script>
@@ -119,7 +129,8 @@ var vm = new Vue({
         isClick : false,
         indexData : {},
         viewDemo : [],
-        sendData : []
+        sendData : [],
+				isMore:false
     },
     methods : {
     	//初始化配置参数
@@ -239,7 +250,10 @@ var vm = new Vue({
 			} else{
 				_that.message('未选中食物','error');
 			}
-    	}
+    	},
+        locationToFaceback(){
+            window.location.href = "./faceback.html";
+        }
    	}
 });
 </script>
