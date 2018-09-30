@@ -165,11 +165,12 @@ var vm = new Vue({
 					this.indexData = outData;
 					this.viewDemo = this.indexData.cateList[0].foodList;
 //					this.endLoading();
-					this.message(outData.resultMessage,'success');
 					this.$refs.boxInitImg.style.display = 'none';
+					this.message(outData.resultMessage,'success');
 					
 				}else{
 //					this.endLoading();
+					this.$refs.boxInitImg.style.display = 'none';
 					this.message(outData.resultMessage,'error');
 				}
 			}).catch(err => {
