@@ -138,7 +138,7 @@ var vm = new Vue({
     		//请求 获取code
     		var H5params = {
     			"funCode": "queryMenu",
-    			"agentId": "1",
+//  			"agentId": "1",
     			"boxId": this.boxId
     		}
 //  		console.log(H5params);
@@ -164,18 +164,15 @@ var vm = new Vue({
 				if(outData.resultCode == '0'){
 					this.indexData = outData;
 					this.viewDemo = this.indexData.cateList[0].foodList;
-//					this.endLoading();
-					this.$refs.boxInitImg.style.display = 'none';
 					this.message(outData.resultMessage,'success');
 					
 				}else{
-//					this.endLoading();
-					this.$refs.boxInitImg.style.display = 'none';
 					this.message(outData.resultMessage,'error');
 				}
+				this.$refs.boxInitImg.style.display = 'none';
 			}).catch(err => {
-//				this.endLoading();
 				this.message(err,'error');
+				this.$refs.boxInitImg.style.display = 'none';
 		   	});
     	},
     	//搜索
