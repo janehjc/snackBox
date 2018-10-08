@@ -62,7 +62,7 @@ Vue.prototype.message = function (msgCon,msgType){
    	this.$message({  
         message : msgCon,  
         type : msgType,
-        duration : 1000
+        duration : 1500
     });
 }
 //价格筛选

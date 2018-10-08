@@ -162,10 +162,13 @@ var vm = new Vue({
 				outData = JSON.parse(outData);
 //				console.log(JSON.stringify(outData));
 				if(outData.resultCode == '0'){
-					this.indexData = outData;
-					this.viewDemo = this.indexData.cateList[0].foodList;
-					this.message(outData.resultMessage,'success');
-					
+					if(outData.cateList.length != '0'){
+						this.indexData = outData;
+						this.viewDemo = this.indexData.cateList[0].foodList;
+						this.message(outData.resultMessage,'success');						
+					}else{
+						this.message('盒子里没有任何产品 ！','success');
+					}
 				}else{
 					this.message(outData.resultMessage,'error');
 				}
