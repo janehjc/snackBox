@@ -268,7 +268,6 @@ var vm = new Vue({
 	        	const result = [];
     			_that.indexData.cateList.forEach(function(v , k) {
     				v.foodList.forEach(function(v1 , k1) {
-//		          		v1.prodName.search(_that.search) != -1 && result.push(v1);
 		          		v1.prodName.indexOf(_that.search) > -1 && result.push(v1);
 		       		});
 	      		});
