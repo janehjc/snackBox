@@ -35,7 +35,7 @@ html,body{height: 100%;background-color: #fff;font-family:'Microsoft Yahei', 'å¾
 			.index-searchBtn img{display: block;}
 			.index-more{position:relative;width: 35px;height: 30px;color: white;text-align: center;line-height: 30px;font-size: 24px;}
 .index_downMenu{position: absolute;top:30px;right:0;width: 100px;height: auto;padding: 5px;background-color:#f3f4f8;}
-.index_downMenu div{width: 90px;height: 24px;margin: 0 auto;font-size: 12px;line-height: 24px;text-align: center;color: black}
+.index_downMenu div{width: 90px;height: 24px;margin: 0 auto;font-size: 12px;line-height: 24px;text-align: center;color: black;border-bottom: 1px solid #ccc;}
 .index_downMenu div i{margin-right: 10px;}
 	.index-header{height: 65px;display: flex;padding: 5px 10px 2px;margin-top: 28px;}
 		.index-header div:first-child{width: 65px;height: 65px;}
@@ -76,7 +76,7 @@ html,body{height: 100%;background-color: #fff;font-family:'Microsoft Yahei', 'å¾
 			.indexFooterCon div:first-child > img{position: absolute;right: -30px;top: -25px;width: 53px;height: 73px;}
 			.indexFooterCon div:first-child span{font-size: 20px;}
 		.indexFooterCon button{width: 115px;height: 55px;/*background-color: #fed101;*/background: url(../img/index-icon/index-btn.png) no-repeat;background-size: cover; line-height: 55px;text-align: center;color: #333;font-weight: bold;font-size: 15px;}
-#faceback{width: 100%;height: 100%;background-color: #F3F1F2}
+#faceback,#addProject{width: 100%;height: 100%;background-color: #F3F1F2}
 .fd_nav{width: 100%;height: 40px;background-color: white;line-height: 40px;text-align: center;position: relative;margin-bottom: 2px;font-weight: bold;}
 .arrow-left{position: absolute;left: 0;top: 12px;font-size: 20px;}
 .fd_contentBox{padding: 20px 10px;background-color: white;}
