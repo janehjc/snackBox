@@ -165,7 +165,7 @@ var vm = new Vue({
 				//返回数据解密
 				var outData = encrypt.decryptByDES(resp.data);
 				outData = JSON.parse(outData);
-//				console.log(JSON.stringify(outData));
+				console.log(outData);
 				if(outData.resultCode == '0'){
 					if(outData.cateList.length != '0'){
 						this.indexData = outData;

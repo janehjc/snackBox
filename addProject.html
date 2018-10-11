@@ -18,21 +18,26 @@
             <i class="el-icon-arrow-left arrow-left"  @click="goBack"></i>
             <span>补货催办</span>
         </div>
+        <div class="addPro-img-con">
+        	<img src="img/index-icon/addPro-warning.png"/>
+        </div>
+        <div class="warning-con">您的盒子在物品短缺的紧急情况下可以联系我们的负责人。如若负责人长时间未补货，您可以拨打我们的监督电话进行投诉。</div>
+        <div class="addPro-btnBox">
+        	<a :href.stop="'tel:'+aaa" class="addPro-btn addPro-contact1"></a>
+        	<a :href.stop="'tel:'+aaa" class="addPro-btn addPro-contact2"></a>        	
+        </div>
     </div>
     <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/element-ui@2.4.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/axios.min.js" type="text/javascript" charset="utf-8"></script>
-    <!--3des编码解码 js文件-->
-    <script src="js/tripledes.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/mode-ecb.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/encrypt.js" type="text/javascript" charset="utf-8"></script>
-    <!--公共js-->
     <script src="js/public@v1.0.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         var vm = new Vue({
             el : '#addProject',
+		    mounted: function () {
+			  	this.setFontSize();
+			},
             data:{
-                text:''
+                text:'',
+                aaa: '10086'
             },
             methods:{
                 goBack(){
