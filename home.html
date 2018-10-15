@@ -125,6 +125,8 @@ var vm = new Vue({
     	//获取商家Id
     	isOnload : false,
     	boxId : getParam('boxId'),
+    	schoolId : getParam('schoolId'),
+    	flag : getParam('flag'),
     	isSearch : false,
     	imgIp : respImg,
     	initTab : '0',
@@ -141,10 +143,19 @@ var vm = new Vue({
     	//初始化配置参数
     	initParm(){
     		//请求 获取code
-    		var H5params = {
-    			"funCode": "queryMenu",
-//  			"agentId": "1",
-    			"boxId": this.boxId
+    		var H5params;
+    		if (this.boxId && this.schoolId && (this.flag == 'Y')) {
+    			var H5params = {
+	    			"funCode": "queryMenu",
+	    			"boxId": this.boxId,
+	    			"schoolId": this.schoolId,
+	    			"flag": this.flag	
+	    		}
+    		} else{
+    			H5params = {
+    				"funCode": "queryMenu",
+    				"boxId": this.boxId
+    			}    			
     		}
 //  		console.log(H5params);
     		H5params = JSON.stringify(H5params);
@@ -165,7 +176,7 @@ var vm = new Vue({
 				//返回数据解密
 				var outData = encrypt.decryptByDES(resp.data);
 				outData = JSON.parse(outData);
-				console.log(outData);
+//				console.log(outData);
 				if(outData.resultCode == '0'){
 					if(outData.cateList.length != '0'){
 						this.indexData = outData;

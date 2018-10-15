@@ -20,7 +20,14 @@
 var vm = new Vue({  
     el : '#app',
     beforeMount: function () {
-		window.location.replace('./home.html?boxId='+getParam('boxId') + '&random=' + Math.random()*1000);
+    	var boxId = getParam('boxId'),
+    		schoolId = getParam('schoolId'),
+    		flag = getParam('flag');
+    		if (boxId && schoolId && (flag == 'Y')) {
+    			window.location.replace('./home.html?boxId='+boxId + '&schoolId=' + schoolId + '&flag=' + flag + '&random=' + Math.random()*1000);    			
+    		} else{
+    			window.location.replace('./home.html?boxId='+boxId+ '&random=' + Math.random()*1000);
+    		}
 	}
 });
 </script>
