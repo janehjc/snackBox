@@ -68,7 +68,7 @@ var vm = new Vue({
 				//返回数据解密
 				var outData = encrypt.decryptByDES(resp.data);
 				outData = JSON.parse(outData);
-//				console.log(outData);
+				console.log(outData);
 				if(outData.resultCode == '0'){
 					this.indexData = outData;
 					if(outData.cateList.length != '0'){
@@ -136,7 +136,9 @@ var vm = new Vue({
 					"foodList" : _that.sendData,
 					"courierId" : _that.indexData.courierId,
 					"courierName" : _that.indexData.courierName,
-					"topPrice" : _that.indexData.topPrice
+					"topPrice" : _that.indexData.topPrice,
+					"schoolId" : _that.indexData.schoolId,
+					"schoolName" : _that.indexData.schoolName
 				}
 				sessionStorage.setItem('submitData',JSON.stringify(submitData));
 				var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
