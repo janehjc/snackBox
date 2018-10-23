@@ -68,7 +68,7 @@ var vm = new Vue({
 				//返回数据解密
 				var outData = encrypt.decryptByDES(resp.data);
 				outData = JSON.parse(outData);
-				console.log(outData);
+//				console.log(outData);
 				if(outData.resultCode == '0'){
 					this.indexData = outData;
 					if(outData.cateList.length != '0'){
@@ -129,7 +129,7 @@ var vm = new Vue({
 				_that.isClick = true;
 				var submitData = {
 					"boxAddress" : _that.indexData.boxAddress,
-					"boxId" : _that.boxId,
+					"boxId" : _that.indexData.boxId,
 					"agentName" : _that.indexData.agentName,
 					"agentId" : _that.indexData.agentId,
 					"moneyNum" : _that.moneyNum,

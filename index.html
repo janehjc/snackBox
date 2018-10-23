@@ -8,26 +8,67 @@
     <meta name = "format-detection" content="telephone = no" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <title>星驰达零食盒子</title>
-    <link rel="stylesheet" type="text/css" href="css/main@v1.1.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="text/css" href="./theme-default/css/main@v1.1.css"/>
 </head>
 <body>
-	<div id="app" class="loadImg">
-		<img src="img/index-icon/loading.gif"/>
+	<div id="app" class="loadImg" v-show="loadingShow">
+		<img src="./theme-default/img/index-icon/loading.gif"/>
 	</div>
-<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/public@v1.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="./theme-default/js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="./theme-default/js/element-ui@2.4.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="./theme-default/js/axios.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./theme-default/js/public@v1.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
 var vm = new Vue({  
-    el : '#app',
-    beforeMount: function () {
-    	var boxId = getParam('boxId'),
-    		schoolId = getParam('schoolId'),
-    		flag = getParam('flag');
-    		if (boxId && schoolId && (flag == 'Y')) {
-    			window.location.replace('./home.html?boxId='+boxId + '&schoolId=' + schoolId + '&flag=' + flag + '&random=' + Math.random()*1000);    			
-    		} else{
-    			window.location.replace('./home.html?boxId='+boxId+ '&random=' + Math.random()*1000);
-    		}
+    el: '#app',
+    data: {
+    	boxId : getParam('boxId'),
+    	schoolId : getParam('schoolId'),
+    	flag : getParam('flag'),
+    	themeUrl : './theme-default',
+    	UrlHaveFlag : '',
+    	UrlNoFlag : '',
+    	loadingShow : true
+    },
+    mounted: function (){
+    	this.initAjax('./data.json');
+	},
+	methods: {
+		initAjax(ajaxUrl) {
+			//请求 主题类型
+			axios({
+	  			url: ajaxUrl,
+				method: 'get',
+	//			data: ajaxParm,
+			}).then(resp => {
+				let Data = resp.data;
+				console.log(Data)
+				if(Data.resultCode == '0'){
+					let themeType = Data.themeType;
+					if (themeType) {
+		    			//1 代表中秋，  2 代表国庆
+		    			if (themeType == 1) {
+		    				this.themeUrl = './theme-moon';
+		    			}else if (themeType == 2) {
+		    				this.themeUrl = './theme-NationalDay';
+		    			}
+		    		}
+		    		this.UrlHaveFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&schoolId=' + this.schoolId + '&flag=' + this.flag + '&random=' + Math.random()*1000;
+		    		this.UrlNoFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&random=' + Math.random()*1000;
+		    		if (this.boxId && this.schoolId && (this.flag == 'Y')) {
+		    			window.location.replace(this.UrlHaveFlag); 			
+		    		} else{
+		    			window.location.replace(this.UrlNoFlag);
+		    		}
+				}else{
+					this.loadingShow = false;
+					this.message(Data.resultMessage,'error');
+				}
+			}).catch(err => {
+				this.message(err,'error');
+		   	});
+		}
 	}
 });
 </script>
