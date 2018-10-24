@@ -41,7 +41,7 @@ var vm = new Vue({
     			"funCode": "themeType"
     		}
     		H5params = JSON.stringify(H5params);
-    		//3des数据加密
+    		//3des
       		var initEnterData = encrypt.encryptByDES(H5params);
     		var ajaxParm = {
     			"H5params":initEnterData
