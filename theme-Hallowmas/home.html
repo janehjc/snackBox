@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> 
+	<meta http-equiv="Pragma" content="no-cache" /> 
+	<meta http-equiv="Expires" content="0" />
+    <meta name = "format-detection" content="telephone = no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>星驰达零食盒子</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!--升级前更改main/css版本号-->
+    <link rel="stylesheet" type="text/css" href="css/main@v1.1.css"/>
+</head>
+<body>
+	<div id="takeOut">
+		<div class="loadImg" ref="boxInitImg">
+			<img src="img/index-icon/loading.gif"/>
+		</div>
+		<div class="index-container" :class="{onloade:isOnload}">
+			<div class="indexHeader">
+				<div class="index-nav">
+					<div class="index-back"></div>
+					<div class="index-search-box">
+						<div class="index-search" v-if="isSearch">
+							<img src="img/index-icon/index-search.png"/>
+							<input v-model.trim="search" placeholder="请输入商品名称"/>
+						</div>
+					</div>
+					<div class="index-searchBtn" @click="searchClick()">
+						<img src="img/index-icon/index-search.png"/>
+					</div>
+					<div class="index-more" @click="isMore=!isMore">
+						<i class="el-icon-more"></i>
+						<div class="index_downMenu" v-show="isMore">
+							<div @click="locationToFaceback()">
+								<i class="el-icon-edit"></i>
+								<span>意见反馈</span>
+							</div>
+							<div @click="addProjectHandle()">
+								<i class="el-icon-phone-outline"></i>
+								<span>补货催办</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="index-header" v-cloak>
+					<!--<div><img src="./img/boxlogo.jpg" /></div>-->
+					<div class="index_boxInfo">
+						<div class="index_boxAddr" v-show="indexData.boxAddress" v-text="indexData.boxAddress"></div>
+						<a :href.stop="'tel:'+indexData.courierMobile">
+							<div class="index_contactTel" v-show="indexData.courierMobile">
+								<img src="img/index-icon/index-tel.png"/>
+								<div v-text="indexData.courierMobile"></div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="index-main" ref="indexMain">
+				<div class="index-aside-L">
+					<ul>
+						<li :class="{active:index==initTab}" v-for="(value,index) of indexData.cateList" v-cloak  :key="indexData.cateList.foodTypeId" @click="indexAsideTab(index)">
+							<div v-text="value.foodTypeName"></div>
+						</li>
+					</ul>
+				</div>
+				<div class="index-aside-R">
+					<div class="indexDemo" v-for="(value,index) of viewDemo" v-cloak  :key="viewDemo.prodId">
+						<div class="indexDemoL" @click="listClick(index)">
+							<img class="imdexDemoL-bg1" src="img/index-icon/index-bg4.png"/>
+							<img class="imdexDemoL-bg2" src="img/index-icon/index-bg5.png"/>
+							<div>
+								<img :src="imgIp + value.logo"/>							
+							</div>
+						</div>
+						<div class="indexDemoR" :class="{indexDemoRBgc: value.prodNum == '0'}">
+							<div v-text="value.prodName"></div>
+							<div>
+								<span>库存数量：{{value.prodNum}}</span>
+							</div>
+							<div>
+								<span class="indexPrice">{{value.petailPrice | moneyMark(value.petailPrice)}}</span>
+								<p>
+									<span @click.stop="subPrice(index)"></span>
+									<span><input v-model="value.num" disabled="disabled" /></span>
+									<span @click.stop="addPrice(index)"></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="index-footer" v-cloak>
+				<img src="img/index-icon/index-bg3.png"/>
+				<div class="indexFooterCon">
+					<div>
+						共计：<span>{{this.moneyNum | moneyMark(this.moneyNum)}}</span>
+						<!--<img src="img/index-icon/index-bg2.png" />-->
+					</div>
+					<button @click="sendDataClick()" :disabled="isClick">去结算</button>					
+				</div>
+			</div>
+		</div>
+
+	</div>
+<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/element-ui@2.4.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/axios.min.js" type="text/javascript" charset="utf-8"></script>
+<!--3des编码解码 js文件-->
+<script src="js/tripledes.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/mode-ecb.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/encrypt.js" type="text/javascript" charset="utf-8"></script>
+<!--公共js-->
+<script src="js/public@v1.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

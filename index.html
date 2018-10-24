@@ -35,10 +35,23 @@ var vm = new Vue({
     	this.initAjax('./data.json');
 	},
 	methods: {
-		initAjax(ajaxUrl) {
-			//请求 主题类型
+		//init parameter
+		initParam(){
+    		var H5params = {
+    			"funCode": "themeType"
+    		}
+    		H5params = JSON.stringify(H5params);
+    		//3des数据加密
+      		var initEnterData = encrypt.encryptByDES(H5params);
+    		var ajaxParm = {
+    			"H5params":initEnterData
+			}
+        },
+        //public axios
+		initAjax(respUrl) {
+			//get themeType
 			axios({
-	  			url: ajaxUrl,
+	  			url: respUrl,
 				method: 'get',
 	//			data: ajaxParm,
 			}).then(resp => {
@@ -46,11 +59,13 @@ var vm = new Vue({
 				if(Data.resultCode == '0'){
 					var themeType = Data.themeType;
 					if (themeType) {
-		    			//1 代表中秋，  2 代表国庆
+		    			//1:Mid-autumn Festival; 2:National Day; 3:Hallowmas
 		    			if (themeType == 1) {
 		    				this.themeUrl = './theme-moon';
 		    			}else if (themeType == 2) {
 		    				this.themeUrl = './theme-NationalDay';
+		    			}else if (themeType == 3) {
+		    				this.themeUrl = './theme-Hallowmas';
 		    			}
 		    		}
 		    		this.UrlHaveFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&schoolId=' + this.schoolId + '&flag=' + this.flag + '&random=' + Math.random()*1000;
