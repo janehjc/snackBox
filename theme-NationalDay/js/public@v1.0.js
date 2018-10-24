@@ -21,20 +21,7 @@ Vue.prototype.setCookie = function(c_name, value, time) {
 	}
 	document.cookie = c_name + "=" + escape(value) + ((time == null || time==0) ? "" : ";expires=" + exdate.toGMTString())
 }
-//// 获取cook
-//Vue.prototype.getCookie = function(c_name) {
-//	if (document.cookie.length > 0) {
-//		c_start = document.cookie.indexOf(c_name + "=")
-//		if (c_start != -1) {
-//			c_start = c_start + c_name.length + 1
-//			c_end = document.cookie.indexOf(";", c_start)
-//			if (c_end == -1) c_end = document.cookie.length
-//			return decodeURI(document.cookie.substring(c_start, c_end))
-//		}
-//	}
-//	return null;
-//}
-// 加载
+// loading加载
 var loading;
 Vue.prototype.startLoading = function (){
    	loading = this.$loading({
@@ -47,23 +34,12 @@ Vue.prototype.startLoading = function (){
 Vue.prototype.endLoading = function (){
    	loading.close();
 }
-// 通知
-Vue.prototype.notify = function (tit,msg,type){
-   	this.$notify({
-	    title: tit,
-	    message: msg,
-	    type: type,
-	    duration: 2000,
-	    showClose: false,
-	    offset: 100
-    });
-}
 // 消息
 Vue.prototype.message = function (msgCon,msgType){
    	this.$message({  
         message : msgCon,  
         type : msgType,
-        duration : 1500
+        duration : 2000
     });
 }
 //价格筛选

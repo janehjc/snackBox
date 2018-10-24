@@ -26,7 +26,7 @@ html,body{height: 100%;background-color: #fff;font-family:'Microsoft Yahei', 'å¾
 .onloade{display: block;}
 	.indexHeader{height: 150px;background: url(../img/index-icon/index-bgc.png) no-repeat;background-size: 100% 150px;}
 	.index-nav{height: 30px;display: flex;padding: 10px 0;}
-		.index-back{width: 50px;height: 30px;line-height: 30px;background: url(../img/index-icon/index-back2.png) 17px no-repeat;background-size: 11px 16px;}
+		.index-back{width: 50px;height: 30px;line-height: 30px;/*background: url(../img/index-icon/index-back2.png) 17px no-repeat;background-size: 11px 16px;*/}
 		.index-search-box{flex:1;}
 			.index-search{width: 100%;font-size: 1.2rem;position: relative;}
 				.index-search img{width: 15px;height: 15px;position: absolute;left: 8px;top: 8px;}
