@@ -151,10 +151,20 @@ var vm = new Vue({
     	},
     	//意见反馈
         locationToFaceback(){
+        	var faceBackData = {
+        		"boxId": this.indexData.boxId
+        	}
+        	sessionStorage.setItem('faceBackData',JSON.stringify(faceBackData));
             window.location.href = "./faceback.html";
         },
         //补货催办
         addProjectHandle () {
+        	var addProjectData = {
+        		"boxId": this.indexData.boxId,
+        		"courierMobile": this.indexData.courierMobile ,
+        		"companyMobile": this.indexData.companyMobile
+        	}
+        	sessionStorage.setItem('addProjectData',JSON.stringify(addProjectData));
         	window.location.href = "./addProject.html";
         }
    	},

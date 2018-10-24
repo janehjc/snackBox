@@ -42,10 +42,9 @@ var vm = new Vue({
 				method: 'get',
 	//			data: ajaxParm,
 			}).then(resp => {
-				let Data = resp.data;
-				console.log(Data)
+				var Data = resp.data;
 				if(Data.resultCode == '0'){
-					let themeType = Data.themeType;
+					var themeType = Data.themeType;
 					if (themeType) {
 		    			//1 代表中秋，  2 代表国庆
 		    			if (themeType == 1) {

@@ -19,10 +19,20 @@
             <span>反馈建议</span>
         </div>
         <div class="fd_contentBox">
-            <textarea name="" id=""  placeholder="留下你宝贵的意见或是你日常中意的零食，你想要的盒子都能满足你！" class="fd_text">{{text}}</textarea>
+            <textarea placeholder="留下你宝贵的意见或是你日常中意的零食，你想要的盒子都能满足你！" class="fd_text" v-model.trim="msg"></textarea>
+        </div>
+        <div class="fd_evaluate">
+        	<p>服务评价</p>
+        	<div class="fdRadio_evaluate">
+        		<div>
+				    <el-radio v-model="radio_evaluate" label="A" border>满意</el-radio>
+				    <el-radio v-model="radio_evaluate" label="B" border>一般</el-radio>
+				    <el-radio v-model="radio_evaluate" label="C" border>不满意</el-radio>
+			    </div>
+			</div>
         </div>
         <div class="fd_contentBox fd_btnBox">
-            <div class="fd_btn" @click="submitClick">提交反馈</div>
+            <div class="fd_btn" @click="submitParm">提交反馈</div>
         </div>
     </div>
     <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -38,15 +48,56 @@
         var vm = new Vue({
             el : '#faceback',
             data:{
-                text:''
+                msg: '',
+                radio_evaluate: 'A',
+                faceBackData: JSON.parse(sessionStorage.getItem('faceBackData'))
             },
             methods:{
                 goBack(){
                     window.history.go(-1);
                 },
-                submitClick(){
-                	alert('提交成功！')
-                	window.history.go(-1);
+                submitParm(){
+                	if (this.msg) {
+                		var H5params = {
+                			"funCode": "feedback",
+                			"boxId": this.faceBackData.boxId,
+                			"message": this.msg,
+                			"serviceAttitude": this.radio_evaluate
+                		}
+//              		console.log(H5params);
+                		H5params = JSON.stringify(H5params);
+                		//3des数据加密
+			      		var initEnterData = encrypt.encryptByDES(H5params);
+			    		var ajaxParm = {
+			    			"H5params":initEnterData
+						}
+                		this.submitClick(ajaxParm);
+                	}else{
+                		this.message('反馈建议不能为空！','error');
+                	}
+                },
+                submitClick(ajaxParm){
+                	this.startLoading();
+                	axios({
+			  			url: respUrl,
+						method: 'post',
+						data: ajaxParm,
+					}).then(resp => {
+						//返回数据解密
+						var outData = encrypt.decryptByDES(resp.data);
+						outData = JSON.parse(outData);
+//						console.log(outData);
+						if(outData.resultCode == '0'){
+							this.message(outData.resultMessage,'success');
+							this.goBack();
+						}else{
+							this.message(outData.resultMessage,'error');
+						}
+						this.endLoading();
+					}).catch(err => {
+						this.message(err,'error');
+						this.endLoading();
+				  });
                 }
             }
         })

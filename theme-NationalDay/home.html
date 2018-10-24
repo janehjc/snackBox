@@ -46,7 +46,15 @@
 				</div>
 				<div class="index-header" v-cloak>
 					<!--<div><img src="./img/boxlogo.jpg" /></div>-->
-					<div v-text="indexData.boxAddress"></div>
+					<div class="index_boxInfo">
+						<div class="index_boxAddr" v-show="indexData.boxAddress" v-text="indexData.boxAddress"></div>
+						<a :href.stop="'tel:'+indexData.courierMobile">
+							<div class="index_contactTel" v-show="indexData.courierMobile">
+								<img src="img/index-icon/index-tel.png"/>
+								<div v-text="indexData.courierMobile"></div>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="index-main" ref="indexMain">

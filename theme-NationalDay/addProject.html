@@ -21,10 +21,10 @@
         <div class="addPro-img-con">
         	<img src="img/index-icon/addPro-warning.png"/>
         </div>
-        <div class="warning-con">您的盒子在物品短缺的紧急情况下可以联系我们的负责人。如若负责人长时间未补货，您可以拨打我们的监督电话进行投诉。</div>
+        <div class="warning-con" v-text="mesText"></div>
         <div class="addPro-btnBox">
-        	<a :href.stop="'tel:'+aaa" class="addPro-btn addPro-contact1"></a>
-        	<a :href.stop="'tel:'+aaa" class="addPro-btn addPro-contact2"></a>        	
+        	<a :href.stop="'tel:'+contactTel.courierMobile" class="addPro-btn addPro-contact1"></a>
+        	<a :href.stop="'tel:'+contactTel.companyMobile" class="addPro-btn addPro-contact2"></a>        	
         </div>
     </div>
     <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -36,8 +36,8 @@
 			  	this.setFontSize();
 			},
             data:{
-                text:'',
-                aaa: '10086'
+                mesText:'您的盒子在物品短缺的紧急情况下可以联系我们的负责人。如若负责人长时间未补货，您可以拨打我们的监督电话进行投诉。',
+                contactTel: JSON.parse(sessionStorage.getItem('addProjectData'))
             },
             methods:{
                 goBack(){

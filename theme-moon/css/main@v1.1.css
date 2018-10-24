@@ -37,10 +37,21 @@ html,body{height: 100%;background-color: #fff;font-family:'Microsoft Yahei', 'å¾
 .index_downMenu{position: absolute;top:30px;right:0;width: 100px;height: auto;padding: 5px;background-color:#f3f4f8;}
 .index_downMenu div{width: 90px;height: 24px;margin: 0 auto;font-size: 12px;line-height: 24px;text-align: center;color: black;border-bottom: 1px solid #ccc;}
 .index_downMenu div i{margin-right: 10px;}
-	.index-header{height: 65px;display: flex;padding: 5px 10px 2px;margin-top: 28px;}
+	/*.index-header{height: 65px;display: flex;padding: 5px 10px 2px;margin-top: 28px;}
 		.index-header div:first-child{width: 65px;height: 65px;}
 			.index-header div:first-child img{width: 65px;height: 65px;}
-		.index-header div:last-child{flex-grow:1;height: 65px;line-height: 65px;padding: 0 10px;font-size: 1.5rem;color: #fff;}
+		.index-header div:last-child{flex-grow:1;height: 65px;line-height: 65px;padding: 0 10px;font-size: 1.5rem;color: #fff;}*/
+	
+	.index-header{height: 35px;display: flex;padding: 34px 10px 2px;margin-top: 28px;}
+		.index-header div.index_boxInfo{width: 35px;height: 35px;}
+			/*.index-header div:first-child img{width: 65px;height: 65px;}*/
+		.index-header div.index_boxInfo{flex:1;height: 25px;line-height: 21px;padding: 0 10px;font-size: 1.5rem;color: #fff;display: flex;}
+		div.index_boxInfo a:link,div.index_boxInfo a:active,div.index_boxInfo a:visited,div.index_boxInfo a:hover{text-decoration:none;}
+		div.index_boxInfo .index_boxAddr{padding: 2px 10px;background-color: #21d080;border-radius: 2px;margin-right: 10px;}
+		div.index_boxInfo .index_contactTel{display: flex;align-items: center;}
+		div.index_contactTel img{width: 25px;height: 25px;margin-right: -1px;border-radius: 4px 0 0 4px;}
+		div.index_contactTel div{height: 25px;line-height: 25px;background-color:rgba(255,255,255,0.8);color: #333;border-radius: 0 4px 4px 0;padding: 0 2px;}
+	
 	.index-main{display: flex;background-color: #f7f8fa;}
 		.index-aside-L{width: 75px;/*background-color: #f3f4f8;*/}
 			.index-aside-L ul{}
@@ -83,6 +94,11 @@ html,body{height: 100%;background-color: #fff;font-family:'Microsoft Yahei', 'å¾
 .fd_text{width: 96%;height: 120px;background-color: #F3F1F2;border-radius: 6px;padding: 2%;border: 0;color: #A2A0A1;}
 .fd_btnBox{margin-top:10px;}
 .fd_btn{width: 100%;height: 40px;background-color: #45D37F;color: white;text-align: center;line-height: 40px;border-radius: 6px;}
+
+.fd_evaluate{display: flex;flex-direction: column;margin: 10px 0;background: #fff;padding: 10px;}
+	.fd_evaluate p{text-align: center;height: 50px;line-height: 50px;}
+	.fdRadio_evaluate{display: flex;align-items: center;padding: 20px 0;}
+	.fdRadio_evaluate div{margin: 0 auto;}
 
 #addProject{display: flex;flex-direction: column;align-items: center;background: #F3F4F9;}
 	#addProject .fd_nav{font-size: 1.3rem;}
