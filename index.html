@@ -18,6 +18,10 @@
 <script src="./theme-default/js/vue.js" type="text/javascript" charset="utf-8"></script>
 <script src="./theme-default/js/element-ui@2.4.1.js" type="text/javascript" charset="utf-8"></script>
 <script src="./theme-default/js/axios.min.js" type="text/javascript" charset="utf-8"></script>
+<!--3des编码解码 js文件-->
+<script src="./theme-default/js/tripledes.js" type="text/javascript" charset="utf-8"></script>
+<script src="./theme-default/js/mode-ecb.js" type="text/javascript" charset="utf-8"></script>
+<script src="./theme-default/js/encrypt.js" type="text/javascript" charset="utf-8"></script>
 <script src="./theme-default/js/public@v1.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
 var vm = new Vue({  
@@ -32,7 +36,8 @@ var vm = new Vue({
     	loadingShow : true
     },
     mounted: function (){
-    	this.initAjax('./data.json');
+//  	this.initAjax('./data.json');
+		this.initParam();
 	},
 	methods: {
 		//init parameter
@@ -48,39 +53,29 @@ var vm = new Vue({
     		var ajaxParm = {
     			"H5params":initEnterData
 			}
+    		this.initAjax(ajaxParm);
         },
         //public axios
-		initAjax(respUrl) {
+		initAjax(ajaxParm) {
 			//get themeType
 			axios({
 	  			url: respUrl,
-				method: 'get',
-	//			data: ajaxParm,
+				method: 'post',
+				data: ajaxParm,
 			}).then(resp => {
-				var Data = resp.data;
-				if(Data.resultCode == '0'){
-					var themeType = Data.themeTypeUrl;
-					if (themeType) {
-		    			//1:Mid-autumn Festival; 2:National Day; 3:Hallowmas
-//		    			if (themeType == 1) {
-//		    				this.themeUrl = './theme-MidAutumnFestival';
-//		    			}else if (themeType == 2) {
-//		    				this.themeUrl = './theme-NationalDay';
-//		    			}else if (themeType == 3) {
-//		    				this.themeUrl = './theme-Hallowmas';
-//		    			}
-						this.themeUrl = themeType;
-		    		}
+				//返回数据解密
+				var outData = encrypt.decryptByDES(resp.data);
+				outData = JSON.parse(outData);
+				console.log(outData);
+				if(outData.resultCode == '0'){
+					var themeType = outData.themeTypeUrl;
+					themeType && (this.themeUrl = themeType);
 		    		this.UrlHaveFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&schoolId=' + this.schoolId + '&flag=' + this.flag + '&random=' + Math.random()*1000;
 		    		this.UrlNoFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&random=' + Math.random()*1000;
-		    		if (this.boxId && this.schoolId && (this.flag == 'Y')) {
-		    			window.location.replace(this.UrlHaveFlag); 			
-		    		} else{
-		    			window.location.replace(this.UrlNoFlag);
-		    		}
+		    		(this.boxId && this.schoolId && (this.flag == 'Y')) ? window.location.replace(this.UrlHaveFlag) : window.location.replace(this.UrlNoFlag);
 				}else{
 					this.loadingShow = false;
-					this.message(Data.resultMessage,'error');
+					this.message(outData.resultMessage,'error');
 				}
 			}).catch(err => {
 				this.message(err,'error');
