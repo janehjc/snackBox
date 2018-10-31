@@ -38,7 +38,9 @@ var vm = new Vue({
 		//init parameter
 		initParam(){
     		var H5params = {
-    			"funCode": "themeType"
+    			"funCode": "themeType",
+    			"boxId": this.boxId,
+    			"schoolId": this.schoolId
     		}
     		H5params = JSON.stringify(H5params);
     		//3des
@@ -57,16 +59,17 @@ var vm = new Vue({
 			}).then(resp => {
 				var Data = resp.data;
 				if(Data.resultCode == '0'){
-					var themeType = Data.themeType;
+					var themeType = Data.themeTypeUrl;
 					if (themeType) {
 		    			//1:Mid-autumn Festival; 2:National Day; 3:Hallowmas
-		    			if (themeType == 1) {
-		    				this.themeUrl = './theme-MidAutumnFestival';
-		    			}else if (themeType == 2) {
-		    				this.themeUrl = './theme-NationalDay';
-		    			}else if (themeType == 3) {
-		    				this.themeUrl = './theme-Hallowmas';
-		    			}
+//		    			if (themeType == 1) {
+//		    				this.themeUrl = './theme-MidAutumnFestival';
+//		    			}else if (themeType == 2) {
+//		    				this.themeUrl = './theme-NationalDay';
+//		    			}else if (themeType == 3) {
+//		    				this.themeUrl = './theme-Hallowmas';
+//		    			}
+						this.themeUrl = themeType;
 		    		}
 		    		this.UrlHaveFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&schoolId=' + this.schoolId + '&flag=' + this.flag + '&random=' + Math.random()*1000;
 		    		this.UrlNoFlag = this.themeUrl + '/home.html?boxId=' + this.boxId + '&random=' + Math.random()*1000;
