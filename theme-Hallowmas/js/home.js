@@ -143,7 +143,7 @@ var vm = new Vue({
 				sessionStorage.setItem('submitData',JSON.stringify(submitData));
 				var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
     			var url1 = "./settle.html";
-    			var url2 = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx768b9bb8de0ef8fa&redirect_uri=http://www.bdgaoxiao.com/snacksBox/static/snackBox/settle.html&res&response_type=code&scope=snsapi_base&state=123&connect_redirect=1#wechat_redirect"
+    			var url2 = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx768b9bb8de0ef8fa&redirect_uri=http://www.bdgaoxiao.com/snacksBox/static/snackBox/theme-Hallowmas/settle.html&res&response_type=code&scope=snsapi_base&state=123&connect_redirect=1#wechat_redirect"
     			window.location.href = (ua.match(/MicroMessenger/i) == 'micromessenger') ? url2 : url1;
 			} else{
 				_that.message('未选中食物','error');
